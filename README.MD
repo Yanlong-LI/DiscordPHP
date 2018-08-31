@@ -50,3 +50,29 @@ OK废话少说，现在你需要知道几件事情，在中国可能无法使用
 # [点击这里学步骤](./docs/step.md "跟我一起学")
 
 [更新日志](docs/log.md "这里是更新日志啦")
+
+目录结构
+```text
+src/ 核心目录
+    lang/ 语言包
+        en.php english
+        zh-cn.php 简体中文
+        zh-tw.php 繁体中文
+        ...
+    resources/ Discord资源
+        User.php 用户资源
+        Guild.php 服务器资源 又称 公会
+        ...
+    support/ 扩展处理类 如curl mysql redis等等
+    DiscordPHP.php 核心入口文件
+
+application/ WEB目录
+
+tester/ 临时用来调试的一些脚本或数据
+
+docs/ 文档+图片
+
+index.php 入口文件
+
+```
+
