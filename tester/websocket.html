@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script
+            src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+
+</body>
+<script>
+    let w;
+    let d = null;
+    let t1;
+    let auth = false;
+
+    function init() {
+        w = new WebSocket('wss://gateway.discord.gg:443');
+        w.onmessage = function (event) {
+            onmessage(event);
+        }
+    }
+
+    function onmessage(event) {
+        let result = {};
+        result = JSON.parse(event.data);
+        if (result.op == 10) {
+            // d = result.d.heartbeat_interval;
+            t1 = window.setInterval(Heartbeat, 5000);
+            return;
+        }
+        switch (result.t) {
+            case "MESSAGE_CREATE":
+                console.log(result.d.author.username+":"+result.d.content);
+                break;
+        }
+        // console.log(event)
+    }
+
+    function Heartbeat() {
+        if (w.readyState == 1) {
+            w.send(JSON.stringify({
+                "op": 1,
+                "d": d,
+            }));
+            //进行鉴权
+            if (!auth) {
+                Identify()
+            }
+        } else {
+            window.clearInterval(t1);
+        }
+
+    }
+
+    function Identify() {
+        auth = true;
+        w.send(JSON.stringify({
+            'd': {
+
+                "token": "NDg0NjIxNDkzMzkzODE3NjEx.DmqDiQ.B04zvidx1zhdvoyI7lsMXJFnHQ8",
+                "properties": {
+                    "$os": "linux",
+                    "$browser": "disco",
+                    "$device": "disco"
+                },
+                "compress": false,
+                "large_threshold": 250,
+                // "shard": [1, 10],
+                "presence": {
+                    "game": {
+                        "name": "Archeage Private",
+                        "type": 1,
+                        "url":"https://twitch.tv/yanlong-li"
+                    },
+                    "status": "online",
+                    "since": 91879201,
+                    "afk": false
+                }
+            },
+            "op": 2
+        }))
+    }
+
+    function fy(){
+        $.ajax({
+            url:"http://openapi.youdao.com/api",
+            data:{
+                q: "你好",//原文
+                from:"zh-CHS",//原编码,
+                to:"EN",//
+                appKey:"",
+                salt:123,
+                sign:"0a2864eaebc7c3f7ec4ef915ffb1dfa2"
+            }
+        })
+    }
+    // init();
+    // //去掉定时器的方法
+    // window.clearInterval(t1);
+
+</script>
+</html>
