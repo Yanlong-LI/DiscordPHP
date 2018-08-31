@@ -7,7 +7,7 @@
  * 有道翻译
  */
 
-namespace non0\discord\server\translate\driver;
+namespace app\translate\drive;
 
 
 class Youdao

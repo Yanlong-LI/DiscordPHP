@@ -11,14 +11,13 @@ namespace non0\discord;
 
 class DiscordPHP
 {
+
+    const VERSION = '0.1.1';
+
     /**
-     * @var array = [ 'redis']
+     * @var array
      */
     public static $config = array();
-
-    public function s(){
-
-    }
 
     /**
      * 获取配置参数

@@ -2,6 +2,7 @@
   "name": "non0/DiscordPHP",
   "description": "这是一个PHP版本的Discord操作Demo",
   "minimum-stability": "dev",
+  "type": "project",
   "license": "MIT",
   "authors": [
     {

@@ -7,7 +7,7 @@
  * 金山词霸
  */
 
-namespace non0\discord\server\translate\driver;
+namespace app\translate\drive;
 
 
 class Iciba
