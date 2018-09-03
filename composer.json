@@ -1,6 +1,7 @@
+
 {
-  "name": "non0/DiscordPHP",
-  "description": "这是一个PHP版本的Discord操作Demo",
+  "name": "non0/discordphp",
+  "description": "这是一个PHP版本的Discord管理软件",
   "minimum-stability": "dev",
   "type": "project",
   "license": "MIT",
@@ -12,13 +13,17 @@
   ],
   "autoload": {
     "psr-4": {
-      "non0\\discord\\":"src/",
-      "app\\":"application/"
+      "discord\\":"discord/",
+      "app\\":"application/",
+      "non0\translate\\":"translate/"
     }
   },
   "require": {
     "php":">=5.6",
     "ext-curl":"*",
-    "ext-json":"*"
+    "ext-json":"*",
+    "ext-sockets":"*",
+    "guzzlehttp/guzzle": "^6.3@dev",
+    "monolog/monolog": "^2.0@dev"
   }
 }

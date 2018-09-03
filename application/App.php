@@ -14,6 +14,6 @@ class App
     //运行项目
     public static function run()
     {
-
+        var_dump($GLOBALS);
     }
 }

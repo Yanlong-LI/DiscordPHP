@@ -6,12 +6,12 @@
  * Time: 17:04
  * APP的入口
  */
+
 // [ 应用入口文件 ]
-namespace app;
+namespace discord;
 // 加载Composer自动加载
 require 'vendor/autoload.php';
-
 //运行项目
-App::run();
+DiscordPHP::run(DiscordPHP::START_SERVER);
 
 
